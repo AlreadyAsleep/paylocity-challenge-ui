@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,13 +11,13 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  employees: Employee[];
+  employees: BehaviorSubject<Array<Employee>>;
 
-  constructor(private employeeService: EmployeeService, router: Router) { }
+  constructor(private employeeService: EmployeeService) { }
 
-  ngOnInit() {
-    this.employeeService.$Employees.subscribe(employees => {
-      this.employees = employees;
-    });
+  async ngOnInit() {
+    this.employees = await this.employeeService.getEmployees();
   }
+
+
 }

@@ -1,0 +1,6 @@
+<div class="sidenav-menu">
+    <mat-button-toggle-group vertical="true" #group="matButtonToggleGroup" [value]="currentUrl">
+        <mat-button-toggle value="/dashboard" (click)="navigate('dashboard')"><span class="mat-subheading-1" >Dashboard</span></mat-button-toggle>
+        <mat-button-toggle value="/employee/new" (click)="navigate('employee/new')"><span class="mat-subheading-1">New Employee</span></mat-button-toggle>
+    </mat-button-toggle-group>
+</div>

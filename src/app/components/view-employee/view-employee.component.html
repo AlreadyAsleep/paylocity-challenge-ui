@@ -1,1 +1,27 @@
-<p>view-employee works!</p>
+<div class="info-container" >
+    <div *ngIf="employee">
+            <p class="mat-display-1">{{employee.FirstName}} {{employee.LastName}}</p>
+        <mat-divider color="accent"></mat-divider>
+        <p class="mat-body">
+            Total Annual Cost: {{totalCost | currency}}<br/>
+            Total Annual Discount: {{totalDiscount | currency}}<br/>
+            Number of Paychecks Per Year: {{numberOfPaychecks}}<br/>
+            Total Cost Per Paycheck: {{totalCost / numberOfPaychecks | currency}}<br/>
+            Total Discount Per Paycheck: {{totalDiscount / numberOfPaychecks | currency}}<br/>
+        </p>
+        <p class="mat-subheading-1">Cost Per Paycheck Breakdown</p>
+        <ul class="mat-body">
+            <li>Cost Per Paycheck of Employee: {{employee.AnnualCost / numberOfPaychecks | currency}}</li>
+            <li *ngFor="let dependent of employee.Dependents">Cost Per Paycheck of Dependent {{dependent.FirstName}} {{dependent.LastName}}: {{dependent.AnnualCost / numberOfPaychecks | currency}}</li>
+        </ul>
+    </div>
+    <div *ngIf="notFound">
+        <p class="mat-display-1" style="color: rgba(1,1,1,.5);">
+            Couldn't find that employee :(
+        </p>
+    </div>
+</div>
+
+
+
+

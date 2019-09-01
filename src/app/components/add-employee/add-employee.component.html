@@ -1,1 +1,41 @@
-<p>add-employee works!</p>
+<div class="form-container">
+    <div *ngIf="errorAdding">
+        <p class="mat-display-1" style="color: rgba(255, 4, 4, 0.5)">Error Adding Employee :(</p>
+    </div>
+    <span class="mat-display-1 form-title">New Employee</span>
+    <form class="mat-body" [formGroup]="employeeForm" (ngSubmit)="submit(employeeForm.value)">
+        <mat-form-field>
+            <input type="text" formControlName="firstName" matInput placeholder="First Name" value="">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" formControlName="lastName" matInput placeholder="Last Name" value="">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" [disabled]="!employeeForm.valid">Submit</button>
+    </form>
+        <span class="mat-subheading-1 form-subtitle">Dependents</span>
+
+    <form class="mat-body" [formGroup]="dependentForm" (ngSubmit)="addDependent(dependentForm.value)">
+        <mat-form-field>
+        <input  type="text" formControlName="firstName" matInput placeholder="First Name" value="">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" formControlName="lastName" matInput placeholder="Last Name" value="">
+        </mat-form-field>
+        <button mat-raised-button color="primary" [disabled]="!dependentForm.valid">Add Dependent</button>
+    </form>
+        
+    <div *ngFor="let dependent of employee.Dependents">
+        <mat-card>
+            <mat-card-content>
+                <div style="display: flex;">
+                        <span class="mat-body left">{{dependent.FirstName}} {{dependent.LastName}}</span>
+                        <span class="spacer"></span>
+                        <button class="right" mat-button color="warn" (click)="removeDependent(dependent)">Remove</button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</div>
+

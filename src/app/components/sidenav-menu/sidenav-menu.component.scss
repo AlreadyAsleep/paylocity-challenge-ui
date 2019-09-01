@@ -1,0 +1,17 @@
+@import '../../../styles.scss';
+.sidenav-menu{
+    width: 20vw;
+    overflow-x: hidden;
+}
+
+mat-button-toggle-group{
+    width: 100%;
+}
+
+.mat-button-toggle-checked{
+    background-color: mat-color($theme-accent);
+    
+    span{
+        color: aliceblue;
+    }
+}

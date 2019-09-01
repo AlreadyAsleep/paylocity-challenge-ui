@@ -1,1 +1,6 @@
-<p>dashboard works!</p>
+<div class="title-container">
+    <span class="mat-display-1">Your Saved Employees</span>
+</div>
+<div *ngFor="let employee of (employees | async)">
+    <app-employee-card [employee]="employee" ></app-employee-card>
+</div>

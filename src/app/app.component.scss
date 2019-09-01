@@ -1,0 +1,12 @@
+@import '../styles.scss';
+.mat-drawer{
+    border-color: mat-color($theme-accent);
+}
+
+mat-sidenav-content{
+    min-height: 92vh;
+}
+
+body{
+    overflow: hidden;
+}

@@ -6,19 +6,31 @@ import { AppComponent } from './app.component';
 import { ViewEmployeeComponent } from './components/view-employee/view-employee.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule} from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material-module';
+import { EmployeeCardComponent } from './components/employee-card/employee-card.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SidenavMenuComponent } from './components/sidenav-menu/sidenav-menu.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewEmployeeComponent,
     DashboardComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    EmployeeCardComponent,
+    HeaderComponent,
+    SidenavMenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
